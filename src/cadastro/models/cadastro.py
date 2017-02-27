@@ -6,6 +6,8 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.core import validators
 from datetime import datetime
+from django.core.mail import send_mail
+
 from cadastro.models.manager import UserManager
 
 import re
