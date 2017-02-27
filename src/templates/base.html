@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% block title %}
+	<title>Pesquisa de Clima</title>
+	{% endblock %}
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	{% block css_specifc %}
+	{% endblock %}
+</head>
+
+<body>
+	<div class="container">
+		{% block container %}
+		{% endblock %}
+	</div>
+
+	<footer class="footer navbar">
+        <!-- Copyright etc -->
+    	<div class="navbar-default navbar-fixed-bottom">
+    		<p class="text-center">© 2016 - Leme Tecnologia - Todos os Direitos
+				Reservados. Proibida a reprodução total ou parcial sem autorização.</p>
+    	</div>
+    </footer>
+
+	<!-- JavaScript -->
+	<script src="{% static "js/jquery-1.12.4.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+	{% block js_global %}
+	{% endblock %}
+</body>
+</html>
