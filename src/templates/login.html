@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block container %}
+<section  class="container">
+	<form method="post" id="form_login" class="form-horizontal">
+		{% csrf_token %}
+
+		<div class="col-md-6 col-md-offset-3 text-center panel" style="margin-top: 2%;">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span class=""></span> &nbsp; <span style="font-size: 18px;font-weight: bold;">Login do Usuario</span>
+				</div>
+
+				<div class="panel-body">
+
+					{% if form.errors %}
+					<div class="col-md-10 col-md-offset-1">
+						{{ form.non_field_errors }}
+					</div>
+					{% endif %}
+
+					{% for field in form %}
+					<div class="col-md-6 col-md-offset-3">
+					    <div class="form-group ">
+							{{ field }}
+							{{ field.errors }}
+						</div>
+					</div>
+					{% endfor %}
+					<div class="col-md-6 col-md-offset-3">
+					   <div class="form-group last">
+							<input type='submit' id="entrar" value='Acessar' class="btn btn-primary pull-right" />
+							<input type='hidden' name='next' value='{{ next }}'/>
+						</div>
+					</div>
+
+				</div>
+				<div class="panel-footer">
+					<span style="font-size: 12px; color: #979797;">Ainda não é cadastrado?&nbsp;<a href="{% url 'usuario:cadastro' %}" >Cadastre-se</a> </span>
+					<br>
+				</div>
+			</div>
+		</div>
+	</form>
+
+</section>
+{% endblock %}
+
+{% block js_global %}
+<script src="{% static "js/jquery.maskedinput.js" %}"></script>
+<script src="{% static "js/authenticate/login.js" %}"></script>
+{% endblock %}

@@ -7,27 +7,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	{% block title %}
-	<title>Pesquisa de Clima</title>
-	{% endblock %}
+	<title>ArteShay.com.br</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+	<link href="{% static "css/style.css" %}" rel="stylesheet">
 	{% block css_specifc %}
 	{% endblock %}
 </head>
 
 <body>
-	<div class="container">
-		{% block container %}
-		{% endblock %}
-	</div>
 
-	<footer class="footer navbar">
+	{% include 'menu.html' %}
+
+	{% block container %}
+	{% endblock %}
+
+	<footer class="footer">
         <!-- Copyright etc -->
-    	<div class="navbar-default navbar-fixed-bottom">
-    		<p class="text-center">© 2016 - Leme Tecnologia - Todos os Direitos
-				Reservados. Proibida a reprodução total ou parcial sem autorização.</p>
+    	<div class="container">
+    		<p class="text-center">© 2017 - Rodrigo Araujo.</p>
     	</div>
     </footer>
 
