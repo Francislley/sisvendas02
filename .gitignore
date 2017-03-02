@@ -1,0 +1,8 @@
+*.pyc
+
+# Arquivos ocultos de projetos
+.git/logs/*
+.git/logs
+.git/objects/*
+
+src/media/images/*
