@@ -5,24 +5,23 @@ from cadastro.models.cadastro import User
 
 class UsuarioCreateForm(forms.ModelForm):
 
-    password2 = forms.CharField(
-        label = u'Confirmar a senha',
+    password = forms.CharField(
+        label=u'Senha',
         max_length=8,
         required=True,
-        widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Confirmar a senha.'}),
+        widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Senha'}),
+    )
+
+    password2 = forms.CharField(
+        label=u'Confirme a senha',
+        max_length=8,
+        required=True,
+        widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Repita a senha escolhida acima'}),
     )
 
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username', 'password')
-
-        labels = {
-            'first_name':_(u'Nome'),
-            'last_name':_(u'Sobrenome'),
-            'email':_(u'E-Mail'),
-            'username':_(u'Usuario'),
-            'password':_(u'Senha'),
-            }
 
         widgets = {
             'first_name': forms.TextInput(attrs={'class':'form-control','placeholder':'Nome'}),
@@ -42,7 +41,7 @@ class UsuarioCreateForm(forms.ModelForm):
 
         def save(self, commit=True):
             # Salva a senha fornecida em formato hash
-            user = super(CadastroCreateForm, self).save(commit=False)
+            user = super(UsuarioCreateForm, self).save(commit=False)
             user.set_password(self.cleaned_data["password"])
             if commit:
                 user.save()
