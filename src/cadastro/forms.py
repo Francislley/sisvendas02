@@ -5,18 +5,24 @@ from cadastro.models.cadastro import User
 
 class UsuarioCreateForm(forms.ModelForm):
 
-    password2 = forms.Char:Field(
+    password2 = forms.CharField(
         label = u'Confirmar a senha',
         max_length=8,
         required=True,
-        widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Confirmar a senha.'})
+        widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'Confirmar a senha.'}),
     )
 
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username', 'password')
 
-        labels = {'first_name', 'last_name', 'email', 'username', 'password'}
+        labels = {
+            'first_name':_(u'Nome'),
+            'last_name':_(u'Sobrenome'),
+            'email':_(u'E-Mail'),
+            'username':_(u'Usuario'),
+            'password':_(u'Senha'),
+            }
 
         widgets = {
             'first_name': forms.TextInput(attrs={'class':'form-control','placeholder':'Nome'}),
