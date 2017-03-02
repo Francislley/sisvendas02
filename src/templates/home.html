@@ -5,15 +5,8 @@
         <p><strong>{% if user.is_authenticated %}{{ user.get_full_name }}{% endif %}</strong></p>
     <form class="" action="" method="post">
 
-        {% if user.not_authenticated %}
-            <p><a href="{% url 'usuario:logout' %}">Logout</a>.</p>
-            <p><a href="/usuario/senha/{{ user.pk }}">Alterar Senha</a></p>
-            {% if user.is_superuser %}
-                <p><a href="{% url 'usuario:lista' %}">Configuração</a></p>
-            {% endif %}
-        {% else %}
-            <p>Precisa se conectar com uma conta valida.</p>
-            <p><a href="{% url 'usuario:login' %}">Login</a>.</p>
-        {% endif %}
+        <p>
+            Em criação
+        </p>
     </form>
     </div>

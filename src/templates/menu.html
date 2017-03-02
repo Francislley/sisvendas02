@@ -12,7 +12,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="#">ArteShay
+				<a class="navbar-brand" href="{% url 'home' %}">ArteShay
 					{# <img id="brand-image" src="#" alt="Achaempregos" ></img>#}
 				</a>
                 <div class="navbar-brand navbar-right">
@@ -46,14 +46,14 @@
                             <a href="" class="text-uppercase"></a>
                         </li>
                         <li>
-                            <a href="" class="text-uppercase">
+                            <a href="{% url 'logout' %}" class="text-uppercase">
                                 <i class=" glyphicon glyphicon-log-out"></i>
                                 <span>Sair</span>
                             </a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="#" class="text-uppercase">Login</a>
+                            <a href="{% url 'login' %}" class="text-uppercase">Login</a>
                         </li>
                         <li>
                             <a href="3" class="text-uppercase">Bibliografia</a>
