@@ -46,3 +46,16 @@ class UsuarioCreateForm(forms.ModelForm):
             if commit:
                 user.save()
             return user
+
+class UsuarioUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('first_name','last_name','email','username',)
+
+        widgets = {
+            'first_name':  forms.TextInput(attrs={'class':'form-control','placeholder':'Nome'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control','placeholder':'Sobrenome'}),
+            'email':  forms.EmailInput(attrs={'class':'form-control','placeholder':'email@email.com'}),
+            'username': forms.TextInput(attrs={'class':'form-control','placeholder':'Use apenas letras e números'}),
+        }

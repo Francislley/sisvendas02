@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
+
+
+{% block container %}
+
 <div class='container'>
-    <p><h3>Seja bem vindo</h3></p>
-        <p><strong>{% if user.is_authenticated %}{{ user.get_full_name }}{% endif %}</strong></p>
+    <p><h3>{% if user.is_authenticated %}{{ user.first_name }} {{ user.last_name }}{% endif %}</h3></p>
     <form class="" action="" method="post">
 
         <p>
             Em criação
         </p>
     </form>
-    </div>
+</div>
+{% endblock %}

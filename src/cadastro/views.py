@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login, logout as auth_logout
 
 
-from cadastro.forms import UsuarioCreateForm
+from cadastro.forms import UsuarioCreateForm,UsuarioUpdateForm
 from cadastro.models.cadastro import User
 
 class UsuarioCreateView(CreateView):
@@ -33,3 +33,17 @@ class UsuarioCreateView(CreateView):
         auth_login(self.request, user)
 
         return HttpResponseRedirect(self.get_success_url())
+
+
+class UsuarioUpdateView(UpdateView):
+    model = User
+    form_class = UsuarioUpdateForm
+    success_url = reverse_lazy('home')
+    template_name = 'cadastro/editar_cadastro.html'
+
+    def get_object(self):
+        pk = self.kwargs.get('id', None)
+        return User.objects.get(id=pk)
+
+    def get_context_data(self, **kwargs):
+        return super(UsuarioUpdateView, self).get_context_data(**kwargs)

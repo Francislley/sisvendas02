@@ -104,7 +104,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         Retorna o primeiro e segundo nome com espaço entre eles
         '''
         full_name = '%s %s' % (self.first_name, self.last_name)
-        return self.full_name
+        return self.full_name.strip()
 
     def get_short_name(self):
         '''
